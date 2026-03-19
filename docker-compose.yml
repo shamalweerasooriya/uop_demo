@@ -3,5 +3,5 @@ services:
     image: uop-demo:${IMAGE_TAG:-latest}
     container_name: uop-demo
     ports:
-      - "3001:80"
+      - "3001:3000"
     restart: unless-stopped

@@ -42,12 +42,10 @@ pipeline {
         }
 
         stage('Deploy') {
-            when {
-                branch 'main'
-            }
             steps {
-                sh 'docker compose down || true'
-                sh "IMAGE_TAG=${IMAGE_TAG} docker compose up -d"
+                sh 'docker stop uop-demo || true'
+                sh 'docker rm uop-demo || true'
+                sh "docker run -d --name uop-demo -p 3001:80 --restart unless-stopped ${IMAGE_NAME}:${IMAGE_TAG}"
             }
         }
     }
