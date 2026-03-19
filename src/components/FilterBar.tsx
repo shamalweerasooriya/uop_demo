@@ -12,7 +12,7 @@ export function FilterBar({ current, activeCount, onChange }: Props) {
   return (
     <div className="filter-bar">
       <span className="active-count">
-        {activeCount} item{activeCount !== 1 ? 's' : ''} left
+        {activeCount} item{activeCount !== 1 ? 's' : ''} remaining
       </span>
       <div className="filter-buttons">
         {FILTERS.map((f) => (
