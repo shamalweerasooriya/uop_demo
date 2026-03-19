@@ -50,6 +50,20 @@ pipeline {
             }
         }
 
+        stage('Approval') {
+            options {
+                timeout(time: 30, unit: 'MINUTES')
+            }
+            steps {
+                script {
+                    def action = params.ACTION == 'rollback'
+                        ? "rollback to ${IMAGE_NAME}:${params.ROLLBACK_TAG}"
+                        : "deploy ${IMAGE_NAME}:${IMAGE_TAG}"
+                    input message: "Approve ${action}?", ok: 'Approve'
+                }
+            }
+        }
+
         stage('Deploy') {
             when { expression { params.ACTION == 'deploy' } }
             steps {
