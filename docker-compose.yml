@@ -1,0 +1,7 @@
+services:
+  app:
+    image: uop-demo:${IMAGE_TAG:-latest}
+    container_name: uop-demo
+    ports:
+      - "3001:80"
+    restart: unless-stopped
