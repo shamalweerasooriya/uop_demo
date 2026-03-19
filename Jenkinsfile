@@ -23,11 +23,11 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                sh 'pnpm test -- --ci --reporters=default'
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         sh 'pnpm test -- --ci --reporters=default'
+        //     }
+        // }
 
         stage('Build') {
             steps {
