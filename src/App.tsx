@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Todo App Demo</h1>
+      <h1>Todo App</h1>
       <TodoInput onAdd={addTodo} />
       <FilterBar
         current={filter}
